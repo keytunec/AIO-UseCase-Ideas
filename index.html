@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAG Assistant Platform</title>
+    <title>AMM RAG Assistant Platform</title>
     <style>
         * {
             margin: 0;
@@ -334,28 +334,32 @@
             display: flex;
             gap: 10px;
             margin-top: 15px;
+            flex-wrap: wrap;
         }
 
-        .workflow-btn {
-            background: #4caf50;
-            color: white;
+        .action-btn {
             border: none;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
             opacity: 0.5;
             transition: all 0.3s ease;
+            color: white;
         }
 
-        .workflow-btn.active {
+        .action-btn.active {
             opacity: 1;
         }
 
-        .workflow-btn.active:hover {
-            background: #45a049;
+        .action-btn.active:hover {
             transform: translateY(-2px);
         }
+
+        .action-btn.primary { background: #E20074; }
+        .action-btn.success { background: #4caf50; }
+        .action-btn.info { background: #2196F3; }
+        .action-btn.warning { background: #ff9800; }
 
         .prompt-library-btn {
             background: #9c27b0;
@@ -572,63 +576,63 @@
         <!-- Landing Page -->
         <div id="landing-page">
             <div class="header">
-                <h1>RAG Assistant Platform</h1>
-                <p>Intelligent knowledge management and workflow automation for your organization</p>
+                <h1>AMM RAG Assistant Platform</h1>
+                <p>Intelligent Application Modernization & Management through AI-powered knowledge assistance</p>
             </div>
             
             <div class="use-cases-grid">
-                <div class="use-case-card" onclick="openUseCase('onboarding')">
-                    <span class="emoji">👋</span>
-                    <h3>Onboarding Assistant</h3>
-                    <p>Guides new hires through setup, policies, and initial tasks to accelerate their integration into the team and company.</p>
+                <div class="use-case-card" onclick="openUseCase('doc-inconsistencies')">
+                    <span class="emoji">🔍</span>
+                    <h3>Detect Document Inconsistencies</h3>
+                    <p>Scan documentation for duplicate or contradictory information about application configurations and deployment procedures.</p>
                 </div>
                 
-                <div class="use-case-card" onclick="openUseCase('tech-support')">
-                    <span class="emoji">🧑‍💻</span>
-                    <h3>Internal Tech Support</h3>
-                    <p>Acts as the first line of defense for IT issues, providing instant solutions from knowledge bases and past support tickets.</p>
+                <div class="use-case-card" onclick="openUseCase('tag-documents')">
+                    <span class="emoji">🏷️</span>
+                    <h3>Tag Inconsistent Documents</h3>
+                    <p>Automatically identify and tag legacy application docs that need review due to inconsistencies or outdated information.</p>
                 </div>
                 
-                <div class="use-case-card" onclick="openUseCase('documentation')">
-                    <span class="emoji">✍️</span>
-                    <h3>Release Documentation</h3>
-                    <p>Automatically drafts release notes, changelogs, and user documentation directly from development and project management tools.</p>
-                </div>
-                
-                <div class="use-case-card" onclick="openUseCase('codebase-qa')">
-                    <span class="emoji">🤖</span>
-                    <h3>Codebase Q&A</h3>
-                    <p>Allows developers to ask natural language questions about complex or legacy codebases to understand architecture and functionality.</p>
-                </div>
-                
-                <div class="use-case-card" onclick="openUseCase('incident-postmortem')">
-                    <span class="emoji">🔎</span>
-                    <h3>Incident Post-Mortem</h3>
-                    <p>Analyzes incident data from chat logs, monitoring tools, and ticket systems to generate a draft post-mortem report quickly.</p>
-                </div>
-                
-                <div class="use-case-card" onclick="openUseCase('security-compliance')">
-                    <span class="emoji">🛡️</span>
-                    <h3>Security & Compliance</h3>
-                    <p>Provides instant, accurate answers about security policies, data handling rules, and compliance requirements.</p>
-                </div>
-                
-                <div class="use-case-card" onclick="openUseCase('sprint-planning')">
+                <div class="use-case-card" onclick="openUseCase('project-reports')">
                     <span class="emoji">📊</span>
-                    <h3>Sprint Planning</h3>
-                    <p>Leverages historical project data to help forecast team velocity, identify risks, and suggest tasks for upcoming sprints.</p>
+                    <h3>Create Stakeholder Reports</h3>
+                    <p>Generate comprehensive modernization progress reports and status updates for stakeholders and executive teams.</p>
                 </div>
                 
-                <div class="use-case-card" onclick="openUseCase('expert-finder')">
-                    <span class="emoji">🌐</span>
-                    <h3>Expert Finder</h3>
-                    <p>Discovers subject matter experts and locates specific information siloed across different business units and departments.</p>
+                <div class="use-case-card" onclick="openUseCase('rca-support')">
+                    <span class="emoji">🔬</span>
+                    <h3>RCA Support</h3>
+                    <p>Analyze root causes for outages and incidents in legacy applications, providing detailed findings and recommendations.</p>
                 </div>
                 
-                <div class="use-case-card" onclick="openUseCase('api-assistant')">
-                    <span class="emoji">🔌</span>
-                    <h3>API Assistant</h3>
-                    <p>Helps developers by answering questions about internal API endpoints, parameters, and authentication without needing to read lengthy documentation.</p>
+                <div class="use-case-card" onclick="openUseCase('self-service')">
+                    <span class="emoji">🤖</span>
+                    <h3>Self-Service Support</h3>
+                    <p>Reduce support agent workload by providing automated solutions for common legacy application issues.</p>
+                </div>
+                
+                <div class="use-case-card" onclick="openUseCase('ticket-routing')">
+                    <span class="emoji">🎯</span>
+                    <h3>Smart Ticket Routing</h3>
+                    <p>Automatically route and dispatch tickets to the right subject matter experts based on application portfolio mapping.</p>
+                </div>
+                
+                <div class="use-case-card" onclick="openUseCase('context-enrichment')">
+                    <span class="emoji">💡</span>
+                    <h3>Context Enrichment</h3>
+                    <p>Enhance tickets with technical context, business impact analysis, and application dependency information.</p>
+                </div>
+                
+                <div class="use-case-card" onclick="openUseCase('log-monitoring')">
+                    <span class="emoji">📈</span>
+                    <h3>Log Pattern Analysis</h3>
+                    <p>Monitor and search for recurring error patterns and anomalies in legacy application logs and performance metrics.</p>
+                </div>
+                
+                <div class="use-case-card" onclick="openUseCase('pipeline-analysis')">
+                    <span class="emoji">⚙️</span>
+                    <h3>Pipeline Error Analysis</h3>
+                    <p>Analyze deployment pipeline failures and provide automated restart capabilities for legacy application updates.</p>
                 </div>
             </div>
         </div>
@@ -662,7 +666,7 @@
                             <div class="chat-messages" id="chat-messages">
                                 <div class="message assistant">
                                     <div class="message-content">
-                                        Hello! I'm your RAG assistant. How can I help you today? Feel free to use the suggested prompts below or ask me anything related to your selected use case.
+                                        Hello! I'm your AMM RAG assistant. How can I help you with application modernization and management today? Feel free to use the suggested prompts below or ask me anything related to your selected use case.
                                     </div>
                                 </div>
                             </div>
@@ -677,8 +681,8 @@
                                     <button class="send-btn" onclick="sendMessage()">Send</button>
                                 </div>
                                 
-                                <div class="action-buttons">
-                                    <button id="workflow-btn" class="workflow-btn" onclick="runWorkflow()">Run Workflow</button>
+                                <div class="action-buttons" id="action-buttons">
+                                    <!-- Action buttons will be populated by JavaScript -->
                                     <button class="prompt-library-btn" onclick="openPromptLibrary()">Prompt Library</button>
                                 </div>
                             </div>
@@ -697,16 +701,16 @@
                             <div class="workflow-canvas" id="workflow-canvas">
                                 <!-- Initial workflow nodes -->
                                 <div class="workflow-node" style="top: 50px; left: 50px;">
-                                    <h4>🎯 Chat Trigger</h4>
-                                    <p>Activates when chat yields useful result</p>
+                                    <h4>🎯 Analysis Trigger</h4>
+                                    <p>Activates when analysis yields actionable results</p>
                                 </div>
                                 <div class="workflow-node" style="top: 50px; left: 250px;">
-                                    <h4>🔧 Process Data</h4>
-                                    <p>Analyzes and formats the result</p>
+                                    <h4>🔧 Process Results</h4>
+                                    <p>Analyzes and formats the findings</p>
                                 </div>
                                 <div class="workflow-node" style="top: 50px; left: 450px;">
                                     <h4>📤 Execute Action</h4>
-                                    <p>Performs the configured workflow action</p>
+                                    <p>Performs the configured AMM workflow</p>
                                 </div>
                             </div>
                         </div>
@@ -720,10 +724,10 @@
     <div id="prompt-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Prompt Library</h3>
+                <h3>AMM Prompt Library</h3>
                 <button class="close-btn" onclick="closePromptLibrary()">&times;</button>
             </div>
-            <input type="text" class="prompt-search" placeholder="Search prompts..." id="prompt-search" oninput="filterPrompts()">
+            <input type="text" class="prompt-search" placeholder="Search AMM prompts..." id="prompt-search" oninput="filterPrompts()">
             <div id="prompt-library-content">
                 <!-- Prompt library items will be populated by JavaScript -->
             </div>
@@ -731,171 +735,222 @@
     </div>
 
     <script>
-        // Use case configurations
+        // Use case configurations with AMM-specific data
         const useCaseConfigs = {
-            onboarding: {
-                title: "Onboarding Assistant",
+            "doc-inconsistencies": {
+                title: "Document Inconsistency Detection",
                 dataSources: [
                     { id: "confluence", name: "Confluence", checked: true },
                     { id: "sharepoint", name: "SharePoint", checked: true },
-                    { id: "azure-ad", name: "Company Directory (Azure AD)", checked: true },
-                    { id: "slack", name: "Slack History", checked: false }
+                    { id: "doc-repos", name: "Document Repositories", checked: true },
+                    { id: "version-control", name: "Version Control", checked: false }
                 ],
                 promptSuggestions: [
-                    "How do I set up my local development environment?",
-                    "Summarize the code review process.",
-                    "Who is the point of contact for the 'Phoenix' project?"
+                    "Scan our documentation for duplicate or contradictory information about application configurations",
+                    "Are there conflicting deployment procedures documented across teams?",
+                    "Identify inconsistent API documentation versions"
                 ],
-                workflowDescription: "Book a 30-minute introductory meeting with my assigned mentor and add it to both our calendars."
+                actionButtons: [
+                    { text: "Flag Inconsistent Docs", class: "warning", active: false },
+                    { text: "Notify Documentation Owner", class: "info", active: false },
+                    { text: "Generate Consolidation Report", class: "primary", active: false },
+                    { text: "Create Cleanup Task in Jira", class: "success", active: false }
+                ]
             },
-            "tech-support": {
-                title: "Internal Tech Support",
+            "tag-documents": {
+                title: "Document Tagging System",
                 dataSources: [
-                    { id: "jira", name: "Jira Service Management", checked: true },
-                    { id: "confluence", name: "Confluence", checked: true },
-                    { id: "teams", name: "MS Teams History", checked: true },
-                    { id: "logs", name: "System Logs", checked: true }
-                ],
-                promptSuggestions: [
-                    "My VPN connection keeps dropping, what are the common fixes?",
-                    "How do I request access to a production database?",
-                    "I'm getting a 'Permission Denied' error when trying to deploy to staging."
-                ],
-                workflowDescription: "If no solution is found, create a high-priority ticket in Jira Service Management and assign it to the network team."
-            },
-            documentation: {
-                title: "Release Documentation",
-                dataSources: [
-                    { id: "jira", name: "Jira", checked: true },
-                    { id: "github", name: "GitHub/GitLab", checked: true },
-                    { id: "confluence", name: "Confluence", checked: true }
-                ],
-                promptSuggestions: [
-                    "Generate release notes for version 3.1 of our main application.",
-                    "Create a summary of all API changes since the last release.",
-                    "Draft a Confluence page for the new 'Analytics Dashboard' feature."
-                ],
-                workflowDescription: "Post the final release notes to the #announcements channel in MS Teams and create a new page in the 'Product Updates' Confluence space."
-            },
-            "codebase-qa": {
-                title: "Codebase Q&A",
-                dataSources: [
-                    { id: "github", name: "GitHub/GitLab", checked: true },
-                    { id: "confluence", name: "Architecture Docs", checked: true },
-                    { id: "analysis", name: "Code Analysis Reports", checked: true }
-                ],
-                promptSuggestions: [
-                    "Where is the authentication logic handled in the 'core-backend' service?",
-                    "Explain the purpose of the BillingOrchestrator class.",
-                    "Show me examples of how to use the data-export API."
-                ],
-                workflowDescription: "Generate a sequence diagram for the user login process based on the code and save it as a PNG file."
-            },
-            "incident-postmortem": {
-                title: "Incident Post-Mortem Helper",
-                dataSources: [
-                    { id: "slack", name: "Slack/Teams Channels", checked: true },
-                    { id: "pagerduty", name: "PagerDuty/Opsgenie", checked: true },
-                    { id: "grafana", name: "Grafana/Datadog", checked: true },
-                    { id: "jira", name: "Jira", checked: true }
-                ],
-                promptSuggestions: [
-                    "Summarize the incident timeline for 'DB-FAILURE-0521'.",
-                    "Identify key engineers involved in the resolution from the chat logs.",
-                    "List the main remediation actions that were taken."
-                ],
-                workflowDescription: "Create a new post-mortem page in Confluence using our standard template, pre-filled with the generated timeline and action items."
-            },
-            "security-compliance": {
-                title: "Security & Compliance Advisor",
-                dataSources: [
-                    { id: "sharepoint", name: "SharePoint (Policy Documents)", checked: true },
-                    { id: "confluence", name: "Confluence", checked: true },
-                    { id: "snyk", name: "Security Scanning Tools (Snyk)", checked: true }
-                ],
-                promptSuggestions: [
-                    "Are we allowed to store user PII in log files?",
-                    "What is the process for reporting a security vulnerability?",
-                    "Summarize our data retention policy for customer data."
-                ],
-                workflowDescription: "Initiate the process for a new third-party library security review by creating a ticket in the security team's Jira project."
-            },
-            "sprint-planning": {
-                title: "Sprint Planning Assistant",
-                dataSources: [
-                    { id: "jira", name: "Jira", checked: true },
-                    { id: "confluence", name: "Confluence", checked: true },
-                    { id: "github", name: "GitHub/GitLab", checked: true }
-                ],
-                promptSuggestions: [
-                    "Analyze the last 3 sprints for the 'Mobile-App' team and predict the velocity.",
-                    "Which stories in the backlog are missing acceptance criteria?",
-                    "Identify developers with the most experience in our payment module."
-                ],
-                workflowDescription: "Generate a draft sprint in Jira containing the top 5 recommended user stories for the upcoming sprint."
-            },
-            "expert-finder": {
-                title: "Expert Finder",
-                dataSources: [
-                    { id: "azure-ad", name: "Azure AD/LDAP", checked: true },
                     { id: "confluence", name: "Confluence", checked: true },
                     { id: "sharepoint", name: "SharePoint", checked: true },
-                    { id: "teams", name: "MS Teams", checked: true }
+                    { id: "version-control", name: "Version Control", checked: true }
                 ],
                 promptSuggestions: [
-                    "Who is the expert on the new marketing analytics platform?",
-                    "Find the latest quarterly sales report.",
-                    "What are the technical specs for the upcoming 'Project Titan' integration?"
+                    "Which legacy application docs need review due to inconsistencies?",
+                    "Tag outdated integration documentation",
+                    "Mark conflicting configuration guides for modernization review"
                 ],
-                workflowDescription: "Schedule a brief meeting via Teams with the identified expert to discuss my questions."
+                actionButtons: [
+                    { text: "Auto-Tag Document", class: "primary", active: false },
+                    { text: "Send Notification to SME", class: "info", active: false },
+                    { text: "Add to Modernization Backlog", class: "warning", active: false },
+                    { text: "Schedule Review Meeting", class: "success", active: false }
+                ]
             },
-            "api-assistant": {
-                title: "API Assistant",
+            "project-reports": {
+                title: "Stakeholder Report Generation",
                 dataSources: [
-                    { id: "swagger", name: "Swagger/OpenAPI Specifications", checked: true },
-                    { id: "postman", name: "Postman Collections", checked: true },
-                    { id: "confluence", name: "Confluence", checked: true }
+                    { id: "jira", name: "Jira", checked: true },
+                    { id: "confluence", name: "Confluence", checked: true },
+                    { id: "teams", name: "MS Teams", checked: true },
+                    { id: "powerbi", name: "PowerBI", checked: true }
                 ],
                 promptSuggestions: [
-                    "How do I create a new user via the API?",
-                    "What are the required parameters for the /orders endpoint?",
-                    "Show me an example JSON response for a failed payment."
+                    "Generate weekly modernization progress report for stakeholders",
+                    "What's the current status of critical application migrations?",
+                    "Show budget vs. actual spending for AMM projects"
                 ],
-                workflowDescription: "Generate a cURL command to test the 'create product' endpoint with dummy data and send it to me in a direct message on Slack."
+                actionButtons: [
+                    { text: "Share on MS Teams Channel", class: "info", active: false },
+                    { text: "Export as Executive Summary", class: "primary", active: false },
+                    { text: "Send to Stakeholder List", class: "success", active: false },
+                    { text: "Post on Yammer Portal", class: "warning", active: false }
+                ]
+            },
+            "rca-support": {
+                title: "Root Cause Analysis Support",
+                dataSources: [
+                    { id: "jira", name: "Jira", checked: true },
+                    { id: "servicenow", name: "ServiceNow", checked: true },
+                    { id: "log-management", name: "Log Management", checked: true },
+                    { id: "monitoring", name: "Monitoring Tools", checked: true }
+                ],
+                promptSuggestions: [
+                    "Analyze root causes for recent outages in legacy applications",
+                    "What are common failure patterns in our critical manufacturing apps?",
+                    "Provide RCA findings for last week's finance system incident"
+                ],
+                actionButtons: [
+                    { text: "Create Detailed RCA Ticket", class: "primary", active: false },
+                    { text: "Assign to Specialist Team", class: "warning", active: false },
+                    { text: "Share with Change Advisory", class: "info", active: false },
+                    { text: "Update Knowledge Base", class: "success", active: false }
+                ]
+            },
+            "self-service": {
+                title: "Self-Service Support Automation",
+                dataSources: [
+                    { id: "servicenow", name: "ServiceNow", checked: true },
+                    { id: "knowledge-base", name: "Knowledge Base", checked: true },
+                    { id: "chatbot-analytics", name: "Chatbot Analytics", checked: true }
+                ],
+                promptSuggestions: [
+                    "Show me the top 10 support requests for legacy applications",
+                    "How can users self-resolve common ERP integration issues?",
+                    "Provide automated solutions for frequent database connectivity problems"
+                ],
+                actionButtons: [
+                    { text: "Launch Guided Troubleshooting", class: "primary", active: false },
+                    { text: "Create Interactive FAQ", class: "info", active: false },
+                    { text: "Deploy Chatbot Response", class: "success", active: false },
+                    { text: "Generate How-to Video", class: "warning", active: false }
+                ]
+            },
+            "ticket-routing": {
+                title: "Intelligent Ticket Routing",
+                dataSources: [
+                    { id: "servicenow", name: "ServiceNow", checked: true },
+                    { id: "jira", name: "Jira", checked: true },
+                    { id: "active-directory", name: "Active Directory", checked: true }
+                ],
+                promptSuggestions: [
+                    "Route this manufacturing system ticket to the right SME",
+                    "Which team handles legacy mainframe applications?",
+                    "Auto-assign tickets based on application portfolio mapping"
+                ],
+                actionButtons: [
+                    { text: "Auto-Assign to Resolver Group", class: "primary", active: false },
+                    { text: "Escalate to On-Call Expert", class: "warning", active: false },
+                    { text: "Update SLA Clock", class: "info", active: false },
+                    { text: "Notify Application Owner", class: "success", active: false }
+                ]
+            },
+            "context-enrichment": {
+                title: "Domain Knowledge Context",
+                dataSources: [
+                    { id: "confluence", name: "Confluence", checked: true },
+                    { id: "app-portfolio", name: "Application Portfolio", checked: true },
+                    { id: "cmdb", name: "CMDB", checked: true }
+                ],
+                promptSuggestions: [
+                    "Provide technical context for this legacy SAP integration issue",
+                    "What's the business impact of this manufacturing application outage?",
+                    "Enrich this ticket with application dependency information"
+                ],
+                actionButtons: [
+                    { text: "Attach Application Architecture", class: "primary", active: false },
+                    { text: "Link Dependency Map", class: "info", active: false },
+                    { text: "Share Impact Analysis", class: "warning", active: false },
+                    { text: "Add Business Context Notes", class: "success", active: false }
+                ]
+            },
+            "log-monitoring": {
+                title: "Log Pattern & Anomaly Detection",
+                dataSources: [
+                    { id: "splunk", name: "Splunk", checked: true },
+                    { id: "elk-stack", name: "ELK Stack", checked: true },
+                    { id: "app-logs", name: "Application Logs", checked: true },
+                    { id: "apm-tools", name: "APM Tools", checked: true }
+                ],
+                promptSuggestions: [
+                    "Show me recurring error patterns in our ERP system logs",
+                    "Analyze manufacturing application performance degradations",
+                    "Find correlation between infrastructure and application errors"
+                ],
+                actionButtons: [
+                    { text: "Generate Trend Analysis", class: "primary", active: false },
+                    { text: "Create Proactive Alert", class: "warning", active: false },
+                    { text: "Open Preventive Maintenance", class: "success", active: false },
+                    { text: "Notify Infrastructure Team", class: "info", active: false }
+                ]
+            },
+            "pipeline-analysis": {
+                title: "CI/CD Pipeline Analysis",
+                dataSources: [
+                    { id: "jenkins", name: "Jenkins", checked: true },
+                    { id: "gitlab-ci", name: "GitLab CI", checked: true },
+                    { id: "azure-devops", name: "Azure DevOps", checked: true },
+                    { id: "jira", name: "Jira", checked: false }
+                ],
+                promptSuggestions: [
+                    "Analyze deployment pipeline failures for legacy applications",
+                    "Why did the manufacturing system update pipeline fail?",
+                    "Show pipeline health for critical application modernization"
+                ],
+                actionButtons: [
+                    { text: "Auto-Restart Pipeline", class: "success", active: false },
+                    { text: "Log Detailed Error Analysis", class: "primary", active: false },
+                    { text: "Notify DevOps Team", class: "info", active: false },
+                    { text: "Create Improvement Story", class: "warning", active: false }
+                ]
             }
         };
 
-        // Prompt library data
+        // Enhanced prompt library with AMM-specific prompts
         const promptLibrary = [
             {
-                title: "Data Analysis Prompt",
-                description: "Analyze the data from the last 6 months and identify trends, patterns, and anomalies that could impact our decision-making process.",
-                category: "analysis"
+                title: "Legacy Application Assessment",
+                description: "Evaluate this legacy application for modernization readiness, including technical debt, dependencies, and business criticality.",
+                category: "assessment"
             },
             {
-                title: "Code Review Assistant",
-                description: "Review this code for best practices, security vulnerabilities, and performance optimizations. Provide specific suggestions for improvement.",
-                category: "development"
-            },
-            {
-                title: "Meeting Summary Generator",
-                description: "Based on the meeting transcript, create a structured summary with action items, decisions made, and next steps for each participant.",
-                category: "productivity"
-            },
-            {
-                title: "Risk Assessment Framework",
-                description: "Evaluate the potential risks associated with this project/decision and provide a comprehensive risk matrix with mitigation strategies.",
+                title: "Migration Risk Analysis",
+                description: "Analyze potential risks and mitigation strategies for migrating this application to cloud-native architecture.",
                 category: "planning"
             },
             {
-                title: "Documentation Template",
-                description: "Create comprehensive technical documentation for this feature including API specs, usage examples, and troubleshooting guidelines.",
+                title: "Performance Baseline Documentation",
+                description: "Document current performance metrics and establish baselines for post-modernization comparison and SLA definition.",
                 category: "documentation"
+            },
+            {
+                title: "Stakeholder Impact Communication",
+                description: "Create stakeholder-appropriate communication materials explaining the impact and timeline of this modernization effort.",
+                category: "communication"
+            },
+            {
+                title: "Technical Debt Prioritization",
+                description: "Prioritize technical debt items based on business impact, modernization goals, and available resources.",
+                category: "planning"
+            },
+            {
+                title: "Integration Mapping Analysis",
+                description: "Map all integration points for this application and assess modernization impact on connected systems.",
+                category: "analysis"
             }
         ];
 
         let currentUseCase = null;
-        let workflowActivated = false;
+        let activeActionButtons = [];
 
         function showLandingPage() {
             document.getElementById('landing-page').style.display = 'block';
@@ -939,20 +994,32 @@
                 promptSuggestions.appendChild(button);
             });
             
+            // Update action buttons
+            const actionButtons = document.getElementById('action-buttons');
+            const promptLibraryBtn = actionButtons.querySelector('.prompt-library-btn');
+            actionButtons.innerHTML = '';
+            
+            config.actionButtons.forEach((action, index) => {
+                const button = document.createElement('button');
+                button.className = `action-btn ${action.class}`;
+                button.textContent = action.text;
+                button.id = `action-${index}`;
+                button.onclick = () => executeAction(action.text, index);
+                actionButtons.appendChild(button);
+            });
+            
+            actionButtons.appendChild(promptLibraryBtn);
+            activeActionButtons = [...config.actionButtons];
+            
             // Reset chat
             const chatMessages = document.getElementById('chat-messages');
             chatMessages.innerHTML = `
                 <div class="message assistant">
                     <div class="message-content">
-                        Hello! I'm your ${config.title}. How can I help you today? Feel free to use the suggested prompts below or ask me anything related to ${config.title.toLowerCase()}.
+                        Hello! I'm your ${config.title} assistant. How can I help you with application modernization and management today? Feel free to use the suggested prompts below or ask me anything related to ${config.title.toLowerCase()}.
                     </div>
                 </div>
             `;
-            
-            // Reset workflow button
-            const workflowBtn = document.getElementById('workflow-btn');
-            workflowBtn.classList.remove('active');
-            workflowActivated = false;
         }
 
         function toggleSidebar() {
@@ -1002,14 +1069,14 @@
             setTimeout(() => {
                 const thinkingEl = document.createElement('div');
                 thinkingEl.className = 'thinking-indicator';
-                thinkingEl.textContent = '🤔 Analyzing your request and searching relevant data sources...';
+                thinkingEl.textContent = '🤔 Analyzing your AMM request and searching relevant data sources...';
                 chatMessages.appendChild(thinkingEl);
                 
                 setTimeout(() => {
-                    thinkingEl.textContent = '🔍 Found 12 relevant documents. Processing information...';
+                    thinkingEl.textContent = '🔍 Found relevant information from application portfolio and knowledge base...';
                     
                     setTimeout(() => {
-                        thinkingEl.textContent = '⚡ Generating response using retrieval-augmented generation...';
+                        thinkingEl.textContent = '⚡ Generating response using RAG with AMM domain expertise...';
                         
                         setTimeout(() => {
                             thinkingEl.remove();
@@ -1019,17 +1086,21 @@
                             assistantMessage.className = 'message assistant';
                             assistantMessage.innerHTML = `
                                 <div class="message-content">
-                                    Based on the information from your configured data sources, I've found several relevant insights. 
+                                    Based on the AMM data sources and your application portfolio, I've analyzed the request. 
                                     ${getContextualResponse(message)}
                                     
-                                    <br><br>Would you like me to execute the associated workflow for this task?
+                                    <br><br>Select the appropriate action buttons below to proceed with the recommended next steps.
                                 </div>
                             `;
                             chatMessages.appendChild(assistantMessage);
                             
-                            // Activate workflow button
-                            document.getElementById('workflow-btn').classList.add('active');
-                            workflowActivated = true;
+                            // Activate action buttons
+                            activeActionButtons.forEach((action, index) => {
+                                const btn = document.getElementById(`action-${index}`);
+                                if (btn) {
+                                    btn.classList.add('active');
+                                }
+                            });
                             
                             // Scroll to bottom
                             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -1043,43 +1114,41 @@
         }
 
         function getContextualResponse(message) {
-            if (!currentUseCase) return "I can help you with that request.";
+            if (!currentUseCase) return "I can help you with that AMM request.";
             
             const responses = {
-                onboarding: "I've found the complete onboarding checklist and can guide you through setting up your development environment. The process typically takes 2-3 hours.",
-                "tech-support": "I've identified 3 common solutions for this issue based on previous tickets. Let me walk you through the troubleshooting steps.",
-                documentation: "I can generate comprehensive release documentation based on your recent commits and Jira tickets. This will include all feature changes and bug fixes.",
-                "codebase-qa": "I've analyzed the codebase and found the relevant components. The authentication logic is distributed across multiple microservices.",
-                "incident-postmortem": "I've compiled the incident timeline from multiple data sources. The root cause appears to be related to database connection pooling.",
-                "security-compliance": "According to our security policies, this action requires additional approval. I can initiate the compliance review process.",
-                "sprint-planning": "Based on the team's velocity data from the last 6 sprints, I recommend including 8-10 story points for the upcoming sprint.",
-                "expert-finder": "I've identified 3 team members with expertise in this area. Sarah Johnson has the most experience with similar projects.",
-                "api-assistant": "Here's the API endpoint documentation with example requests and responses. The authentication token is required in the header."
+                "doc-inconsistencies": "I've found 15 documentation conflicts across your application portfolio. The main inconsistencies are in deployment procedures and API specifications.",
+                "tag-documents": "I've identified 23 legacy documents requiring review. Most are related to outdated integration patterns and deprecated configuration guides.",
+                "project-reports": "Based on current project data, 67% of critical applications are on track for modernization. Budget utilization is at 84% with 2 months remaining.",
+                "rca-support": "Analysis shows the root cause is related to connection pool exhaustion in the legacy database tier. Similar patterns detected in 3 other applications.",
+                "self-service": "I found 12 frequently reported issues that can be resolved through automated self-service. This could reduce L1 tickets by approximately 35%.",
+                "ticket-routing": "Based on application expertise mapping, this ticket should be routed to the Manufacturing Systems team. SME: Sarah Johnson has 85% resolution rate for similar issues.",
+                "context-enrichment": "This application has 14 critical dependencies and impacts 3 business processes. Estimated business impact: $50K/hour during outages.",
+                "log-monitoring": "I've detected recurring error patterns in the ERP system logs occurring every 4 hours. This suggests a batch job timing issue.",
+                "pipeline-analysis": "The deployment pipeline failed due to dependency conflicts in the legacy libraries. Similar failures occurred in 3 other modernization projects."
             };
             
-            return responses[currentUseCase] || "I can help you with that request.";
+            return responses[currentUseCase] || "I can help you with that AMM request.";
         }
 
-        function runWorkflow() {
-            if (!workflowActivated) return;
-            
-            const config = useCaseConfigs[currentUseCase];
+        function executeAction(actionText, index) {
+            const btn = document.getElementById(`action-${index}`);
+            if (!btn || !btn.classList.contains('active')) return;
             
             const chatMessages = document.getElementById('chat-messages');
-            const workflowMessage = document.createElement('div');
-            workflowMessage.className = 'message assistant';
-            workflowMessage.innerHTML = `
+            const actionMessage = document.createElement('div');
+            actionMessage.className = 'message assistant';
+            actionMessage.innerHTML = `
                 <div class="message-content">
-                    🔄 Executing workflow: ${config.workflowDescription}
+                    ✅ <strong>${actionText}</strong> has been executed successfully!
                     <br><br>
-                    ✅ Workflow completed successfully! The requested actions have been performed.
+                    The requested AMM workflow action has been completed and relevant stakeholders have been notified.
                 </div>
             `;
-            chatMessages.appendChild(workflowMessage);
+            chatMessages.appendChild(actionMessage);
             
-            // Reset workflow button
-            document.getElementById('workflow-btn').classList.remove('active');
-            workflowActivated = false;
+            // Deactivate button
+            btn.classList.remove('active');
             
             // Scroll to bottom
             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -1129,10 +1198,10 @@
             node.className = 'workflow-node';
             
             const nodeTypes = {
-                trigger: { emoji: '🎯', title: 'New Trigger', desc: 'Define when this workflow starts' },
-                function: { emoji: '⚙️', title: 'New Function', desc: 'Process or transform data' },
-                condition: { emoji: '❓', title: 'New Condition', desc: 'Make decisions based on data' },
-                output: { emoji: '📤', title: 'New Output', desc: 'Send results or notifications' }
+                trigger: { emoji: '🎯', title: 'AMM Trigger', desc: 'Define when this workflow starts' },
+                function: { emoji: '⚙️', title: 'Process Function', desc: 'Analyze or transform AMM data' },
+                condition: { emoji: '❓', title: 'Decision Point', desc: 'Make decisions based on criteria' },
+                output: { emoji: '📤', title: 'Action Output', desc: 'Execute AMM workflow action' }
             };
             
             const config = nodeTypes[type];
